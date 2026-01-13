@@ -214,7 +214,7 @@ const App: React.FC = () => {
                       <span className="font-medium text-main">{cap.name}</span>
                     </div>
                     <span className="font-bold text-main">
-                      ${cap.currentBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                      ₹{cap.currentBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
                   </div>
                 ))}
@@ -225,7 +225,7 @@ const App: React.FC = () => {
               <div className="px-6 py-4 bg-[var(--bg-surface-alt)]/50 rounded-b-xl flex justify-between items-center">
                 <span className="text-sm font-semibold text-muted">Total Net Value</span>
                 <span className="text-lg font-black text-primary">
-                  ${capitals.reduce((sum, c) => sum + c.currentBalance, 0).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                  ₹{capitals.reduce((sum, c) => sum + c.currentBalance, 0).toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 </span>
               </div>
             </div>
@@ -285,4 +285,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App; 
+export default App;

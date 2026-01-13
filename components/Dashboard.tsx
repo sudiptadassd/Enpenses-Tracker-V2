@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Capital, Expense } from '../types';
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
-import { TrendingUp, ArrowDownRight, DollarSign } from 'lucide-react';
+import { TrendingUp, ArrowDownRight, IndianRupee } from 'lucide-react';
 
 interface DashboardProps {
   capitals: Capital[];
@@ -22,9 +22,6 @@ const Dashboard: React.FC<DashboardProps> = ({ capitals, expenses }) => {
 
   const COLORS = ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
 
-  // Get current CSS variables for chart styling
-  const getCssVar = (name: string) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <header>
@@ -36,11 +33,11 @@ const Dashboard: React.FC<DashboardProps> = ({ capitals, expenses }) => {
         <div className="bg-indigo-600 rounded-2xl p-6 text-white shadow-xl shadow-indigo-200 dark:shadow-none">
           <div className="flex justify-between items-start mb-4">
             <div className="p-3 bg-white/20 rounded-xl">
-              <DollarSign size={24} />
+              <IndianRupee size={24} />
             </div>
             <span className="text-sm font-medium bg-white/10 px-2 py-1 rounded">Total Net Worth</span>
           </div>
-          <div className="text-3xl font-bold mb-1">${totalBalance.toLocaleString()}</div>
+          <div className="text-3xl font-bold mb-1">₹{totalBalance.toLocaleString()}</div>
           <div className="flex items-center gap-1 text-indigo-100 text-sm">
             <TrendingUp size={16} />
             <span>Across {capitals.length} sources</span>
@@ -54,7 +51,7 @@ const Dashboard: React.FC<DashboardProps> = ({ capitals, expenses }) => {
             </div>
             <span className="text-sm font-medium text-muted">Total Spent</span>
           </div>
-          <div className="text-3xl font-bold text-main mb-1">${totalExpenses.toLocaleString()}</div>
+          <div className="text-3xl font-bold text-main mb-1">₹{totalExpenses.toLocaleString()}</div>
           <div className="flex items-center gap-1 text-muted text-sm">
             <span>{expenses.length} Total transactions</span>
           </div>
@@ -139,7 +136,7 @@ const Dashboard: React.FC<DashboardProps> = ({ capitals, expenses }) => {
                 <div className="font-medium text-main">{exp.note || exp.category}</div>
                 <div className="text-xs text-muted">{new Date(exp.date).toLocaleDateString()} • {capitals.find(c => c.id === exp.capitalId)?.name}</div>
               </div>
-              <div className="text-danger font-bold">-${exp.amount.toLocaleString()}</div>
+              <div className="text-danger font-bold">-₹{exp.amount.toLocaleString()}</div>
             </div>
           ))}
           {expenses.length === 0 && (

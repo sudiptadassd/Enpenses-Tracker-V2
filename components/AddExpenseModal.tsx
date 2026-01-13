@@ -54,7 +54,7 @@ const AddExpenseModal: React.FC<AddExpenseModalProps> = ({ capitals, onClose, on
         <div className="text-center py-8 bg-[var(--bg-surface-alt)] rounded-3xl border border-[var(--border)] shadow-inner">
           <label className="block input-label mb-2">Transaction Amount</label>
           <div className="flex items-center justify-center">
-            <span className="text-3xl font-bold text-muted mr-2">$</span>
+            <span className="text-3xl font-bold text-muted mr-2">₹</span>
             <input 
               autoFocus
               required
@@ -97,7 +97,7 @@ const AddExpenseModal: React.FC<AddExpenseModalProps> = ({ capitals, onClose, on
               >
                 {capitals.map(cap => (
                   <option key={cap.id} value={cap.id}>
-                    {cap.name} (${cap.currentBalance.toLocaleString()})
+                    {cap.name} (₹{cap.currentBalance.toLocaleString()})
                   </option>
                 ))}
               </select>

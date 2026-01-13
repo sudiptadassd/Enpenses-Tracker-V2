@@ -71,7 +71,7 @@ const CapitalManager: React.FC<CapitalManagerProps> = ({ capitals, onAdd, onDele
                 />
               </div>
               <div className="space-y-1">
-                <label className="input-label">Initial Balance ($)</label>
+                <label className="input-label">Initial Balance (₹)</label>
                 <input 
                   required
                   type="number" 
@@ -123,7 +123,7 @@ const CapitalManager: React.FC<CapitalManagerProps> = ({ capitals, onAdd, onDele
             <div className="mt-4 space-y-3">
               <div className="flex justify-between text-sm">
                 <span className="text-muted">Balance</span>
-                <span className="font-bold text-main">${cap.currentBalance.toLocaleString()}</span>
+                <span className="font-bold text-main">₹{cap.currentBalance.toLocaleString()}</span>
               </div>
               <div className="w-full bg-[var(--bg-surface-alt)] h-2 rounded-full overflow-hidden">
                 <div 
@@ -135,7 +135,7 @@ const CapitalManager: React.FC<CapitalManagerProps> = ({ capitals, onAdd, onDele
                 />
               </div>
               <div className="flex justify-between text-[10px] uppercase font-bold tracking-wider text-muted">
-                <span>Initial: ${cap.initialBalance.toLocaleString()}</span>
+                <span>Initial: ₹{cap.initialBalance.toLocaleString()}</span>
                 <span>{((cap.currentBalance / cap.initialBalance) * 100).toFixed(0)}% Left</span>
               </div>
             </div>

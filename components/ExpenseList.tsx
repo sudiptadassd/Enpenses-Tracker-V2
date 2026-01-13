@@ -91,7 +91,7 @@ const ExpenseList: React.FC<ExpenseListProps> = ({ expenses, capitals, onDelete 
 
                 <div className="text-lg md:text-sm font-bold text-danger md:text-right md:col-span-1 flex items-center justify-between md:block">
                   <span className="md:hidden text-xs text-muted font-normal uppercase">Amount</span>
-                  -${exp.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                  -₹{exp.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 </div>
 
                 <div className="md:col-span-1 text-right flex justify-end">
